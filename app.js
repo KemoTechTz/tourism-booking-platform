@@ -441,17 +441,17 @@ function renderOverview() {
       <section class="hero" style="--hero-image: url('${image("photo-1516426122078-c23e76319801", 2200)}')">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Kemo Tourism OS</p>
-            <h1>The Complete Booking Infrastructure for Premium Tanzania Tourism</h1>
+            <p class="eyebrow">Tourism OS</p>
+            <h1>Premium Tanzania Tourism</h1>
             <p class="hero-subtitle">
-              A luxury digital booking platform for safari operators, hotels, travel agencies, and destination managers &mdash; built to showcase bookings, payments, guest portals, operator tools, and admin control in one premium system.
+              A digital booking platform for safari operators, hotels, travel agencies, and destination managers &mdash; built to showcase bookings, payments, guest portals, operator tools, and admin control in one premium system.
             </p>
             <div class="cta-row">
-              <button class="btn primary" type="button" data-route="booking">Explore Booking Demo <span aria-hidden="true">&rarr;</span></button>
-              <button class="btn secondary" type="button" data-route="admin">View Admin Command Center</button>
+              <button class="btn primary" type="button" data-route="booking">Explore Booking  <span aria-hidden="true">&rarr;</span></button>
+              <button class="btn secondary" type="button" data-route="admin">Admin Command Center</button>
             </div>
           </div>
-          <div class="hero-panel" aria-label="Kemo Tourism OS previews">
+          <div class="hero-panel" aria-label="Tourism OS previews">
             <div class="floating-card search-widget">
               <div class="card-title-row">
                 <div>
@@ -514,7 +514,7 @@ function renderOverview() {
           <p class="eyebrow">Operating System</p>
           <h2>One Platform. Every Tourism Operation.</h2>
           <p>
-            A premium interface layer for the entire Tanzania tourism lifecycle: discovery, booking, payment, guest experience, supplier operations, and command-center intelligence.
+             Interface layer for the entire Tanzania tourism lifecycle: discovery, booking, payment, guest experience, supplier operations, and command-center intelligence.
           </p>
         </div>
         <div class="module-grid">
