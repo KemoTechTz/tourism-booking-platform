@@ -471,7 +471,7 @@ function renderOverview() {
               <div class="split-row">
                 <div>
                   <div class="card-kicker">Revenue Dashboard</div>
-                  <div class="metric gold">$86,420</div>
+                  <div class="metric gold">$56,420</div>
                 </div>
                 <span class="trend">+18.6%</span>
               </div>
@@ -504,7 +504,7 @@ function renderOverview() {
       <div class="hero-stat-strip">
         ${renderStats([
           ["124", "Active Bookings"],
-          ["$86,420", "Simulated Revenue"],
+          ["$56,420", "Revenue"],
           ["38", "Luxury Experiences"],
           ["12", "Destination Partners"],
         ])}
