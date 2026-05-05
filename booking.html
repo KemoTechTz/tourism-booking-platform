@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Engine - Kemo Tourism OS</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="booking">
+    <div class="app-shell">
+      <header class="topbar" id="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark">K</span><span><strong>Kemo Tourism OS</strong><small>Premium Tanzania Tourism</small></span></a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks" aria-label="Primary navigation"></nav>
+      </header>
+      <main>
+        <section class="page-hero">
+          <div class="page-title">
+            <p class="eyebrow">Booking Simulation</p>
+            <h1>Premium Booking Engine</h1>
+            <p>Configure a luxury Tanzania journey, simulate payment, generate a booking reference, and push the reservation into guest and admin dashboards.</p>
+          </div>
+        </section>
+        <div id="bookingRoot"></div>
+      </main>
+      <div id="modalRoot"></div>
+    </div>
+    <script src="./js/data.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/booking.js"></script>
+  </body>
+</html>

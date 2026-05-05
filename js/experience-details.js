@@ -1,0 +1,103 @@
+(function () {
+  "use strict";
+
+  function render() {
+    var root = document.getElementById("detailsRoot");
+    if (!root || !window.KemoData) return;
+    var id = window.KemoApp.getParam("id");
+    var experience = window.KemoData.getExperienceById(id);
+    root.innerHTML =
+      '<section class="details-hero">' +
+      '<div class="details-title"><p class="eyebrow">Cinematic Experience Details</p><h1>' +
+      window.KemoUtils.escapeHTML(experience.title) +
+      '</h1><p>' +
+      window.KemoUtils.escapeHTML(experience.overview) +
+      '</p><div class="meta-line"><span class="pill">' +
+      window.KemoUtils.escapeHTML(experience.destination) +
+      '</span><span class="pill">' +
+      window.KemoUtils.escapeHTML(experience.duration) +
+      '</span><span class="level-badge">' +
+      window.KemoUtils.escapeHTML(experience.level) +
+      '</span><span class="rating">' +
+      experience.rating +
+      " / 5 - " +
+      experience.reviews +
+      ' reviews</span></div></div>' +
+      '<div class="details-shell"><div class="gallery"><div class="gallery-main"><img src="' +
+      experience.gallery[0] +
+      '" alt="' +
+      window.KemoUtils.escapeHTML(experience.title) +
+      '" /></div><div class="gallery-thumb-grid"><div class="gallery-thumb"><img src="' +
+      experience.gallery[1] +
+      '" alt="' +
+      window.KemoUtils.escapeHTML(experience.destination) +
+      '" /></div><div class="gallery-thumb"><img src="' +
+      experience.gallery[2] +
+      '" alt="' +
+      window.KemoUtils.escapeHTML(experience.destination) +
+      '" /></div></div></div>' +
+      reservationCard(experience) +
+      "</div></section>" +
+      '<section class="details-content"><div class="content-stack">' +
+      '<article class="glass-card"><p class="card-kicker">Luxury Overview</p><h3>Designed for private premium travel operations</h3><p class="muted">' +
+      window.KemoUtils.escapeHTML(experience.overview) +
+      "</p></article>" +
+      '<article class="glass-card"><p class="card-kicker">Experience Highlights</p><div class="highlight-grid">' +
+      ["Private guide orchestration", "Premium accommodation logic", "Guest portal and invoice ready"]
+        .map(function (item) {
+          return '<div class="mini-panel"><strong>' + item + '</strong><p class="muted">Included in the simulated booking lifecycle.</p></div>';
+        })
+        .join("") +
+      "</div></article>" +
+      '<article class="glass-card"><p class="card-kicker">Included Services</p><ul class="service-list">' +
+      ["Luxury lodge", "Airport pickup", "Private guide", "Park fees", "Concierge support", "Travel documents"]
+        .map(function (item) {
+          return "<li>" + item + "</li>";
+        })
+        .join("") +
+      "</ul></article></div>" +
+      '<aside class="content-stack"><article class="glass-card"><p class="card-kicker">Availability Calendar</p>' +
+      calendar() +
+      "</article>" +
+      reservationCard(experience) +
+      "</aside></section>";
+  }
+
+  function reservationCard(experience) {
+    return (
+      '<aside class="reservation-card"><p class="card-kicker">Sticky Reservation</p><h3>From</h3><div class="reservation-price">' +
+      window.KemoUtils.formatMoney(experience.price) +
+      ' <small>/ guest</small></div><p class="muted">' +
+      window.KemoUtils.escapeHTML(experience.duration) +
+      " - Private Safari - " +
+      window.KemoUtils.escapeHTML(experience.availability) +
+      '</p><div class="service-list" style="margin:18px 0">' +
+      ["Luxury lodge", "Airport pickup", "Private guide", "Park fees"]
+        .map(function (item) {
+          return '<div class="mini-panel"><strong>' + item + "</strong></div>";
+        })
+        .join("") +
+      '</div><div class="button-row"><a class="btn primary" href="booking.html?id=' +
+      experience.id +
+      '">Reserve Experience</a><button class="btn secondary" type="button" data-quote>Request Custom Quote</button></div><p class="muted" style="margin:16px 0 0">Demo mode: no real payment charged.</p></aside>'
+    );
+  }
+
+  function calendar() {
+    var html = '<div class="calendar-grid">';
+    for (var i = 1; i <= 28; i += 1) {
+      var cls = [6, 11, 18, 24].indexOf(i) >= 0 ? "hot" : [3, 9, 14, 21, 27].indexOf(i) >= 0 ? "open" : "";
+      html += '<div class="date-cell ' + cls + '">' + i + "</div>";
+    }
+    return html + "</div>";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    render();
+    document.body.addEventListener("click", function (event) {
+      if (event.target && event.target.hasAttribute("data-quote")) {
+        window.KemoUtils.showToast("Custom quote request staged for operator review.", "success");
+      }
+    });
+  });
+})();

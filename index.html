@@ -1,38 +1,102 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Kemo Tourism OS - premium booking infrastructure for Tanzania tourism." />
+    <title>Kemo Tourism OS</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-page="index">
+    <div class="app-shell">
+      <header class="topbar" id="topbar">
+        <a class="brand" href="index.html" aria-label="Kemo Tourism OS overview">
+          <span class="brand-mark">K</span>
+          <span><strong>Kemo Tourism OS</strong><small>Premium Tanzania Tourism</small></span>
+        </a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation"><span></span><span></span><span></span></button>
+        <nav class="nav-links" id="navLinks" aria-label="Primary navigation"></nav>
+      </header>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Kemo Tourism OS - premium booking infrastructure for Tanzania tourism." />
-  <title>Kemo Tourism OS</title>
-  <link rel="preconnect" href="https://images.unsplash.com" />
-  <link rel="stylesheet" href="./styles.css" />
-</head>
+      <main>
+        <section class="hero" style="--hero-image: url('https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=2200&q=82')">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">Kemo Tourism OS</p>
+              <h1>The Complete Booking Infrastructure for Premium Tanzania Tourism</h1>
+              <p class="hero-subtitle">
+                A luxury digital booking platform for safari operators, hotels, travel agencies, and destination managers - built to showcase bookings, payments, guest portals, operator tools, and admin control in one premium system.
+              </p>
+              <div class="cta-row">
+                <a class="btn primary" href="experiences.html">Explore Booking Demo <span aria-hidden="true">&rarr;</span></a>
+                <a class="btn secondary" href="admin.html">View Admin Command Center</a>
+              </div>
+            </div>
+            <div class="hero-panel" aria-label="Kemo Tourism OS previews">
+              <div class="floating-card search-widget">
+                <div class="card-title-row">
+                  <div><div class="card-kicker">Booking Search</div><strong>Luxury journey finder</strong></div>
+                  <span class="status-chip success">Live</span>
+                </div>
+                <div class="field-grid" style="margin-top:16px">
+                  <label class="mini-field"><span>Destination</span><div class="input-shell">Serengeti & Zanzibar</div></label>
+                  <label class="mini-field"><span>Travel Window</span><div class="input-shell">Sep 18 - Sep 28, 2026</div></label>
+                  <label class="mini-field"><span>Guests</span><div class="input-shell">2 Adults - Private guide</div></label>
+                  <a class="btn primary small" href="booking.html?id=serengeti">Reserve Demo</a>
+                </div>
+              </div>
+              <div class="floating-card revenue-preview">
+                <div class="split-row">
+                  <div><div class="card-kicker">Revenue Dashboard</div><div class="metric gold" data-live-stat="revenue">$86,420</div></div>
+                  <span class="trend">Live</span>
+                </div>
+                <div class="bar-stack" aria-hidden="true"><span style="height:38%"></span><span style="height:56%"></span><span style="height:44%"></span><span style="height:71%"></span><span style="height:83%"></span><span style="height:64%"></span><span style="height:92%"></span></div>
+              </div>
+              <div class="floating-card active-booking">
+                <div class="card-kicker">Active Booking Preview</div>
+                <div class="booking-person">
+                  <div class="avatar">AH</div>
+                  <div><strong>Amina Hassan</strong><p class="muted" style="margin:2px 0 0">Serengeti Private Migration Safari</p></div>
+                  <span class="status-chip confirmed">Confirmed</span>
+                </div>
+                <div class="summary-line"><span>Reference</span><strong>KEMO-OS-48392</strong></div>
+                <div class="summary-line"><span>Deposit</span><strong>$2,146 paid</strong></div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-<body>
-  <div class="app-shell">
-    <header class="topbar" id="topbar">
-      <a class="brand" href="#overview" aria-label="Kemo Tourism OS overview">
-        <span class="brand-mark">K</span>
-        <span>
-          <strong>Kemo Tourism OS</strong>
-          <small>Tanzania Tourism</small>
-        </span>
-      </a>
-      <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="nav-links" id="navLinks" aria-label="Primary navigation"></nav>
-    </header>
+        <div class="hero-stat-strip">
+          <article class="stat-card"><strong data-live-stat="activeBookings">124</strong><span>Active Bookings</span></article>
+          <article class="stat-card"><strong data-live-stat="revenue">$86,420</strong><span>Simulated Revenue</span></article>
+          <article class="stat-card"><strong>38</strong><span>Luxury Experiences</span></article>
+          <article class="stat-card"><strong>12</strong><span>Destination Partners</span></article>
+        </div>
 
-    <main id="app"></main>
-    <div id="modalRoot"></div>
-  </div>
-
-  <script src="./app.js"></script>
-</body>
-
+        <section class="section">
+          <div class="section-header center">
+            <p class="eyebrow">Operating System</p>
+            <h2>One Platform. Every Tourism Operation.</h2>
+            <p>A premium interface layer for the entire Tanzania tourism lifecycle: discovery, booking, payment, guest experience, supplier operations, and command-center intelligence.</p>
+          </div>
+          <div class="module-grid">
+            <article class="module-card"><div class="module-icon">01</div><h3>Booking Engine</h3><p>Configure travel dates, guests, upgrades, deposits, invoices, and booking references.</p></article>
+            <article class="module-card"><div class="module-icon">02</div><h3>Luxury Experience Inventory</h3><p>Manage premium safari, beach, trekking, culture, and honeymoon products.</p></article>
+            <article class="module-card"><div class="module-icon">03</div><h3>Guest Portal</h3><p>Give guests one polished space for itineraries, invoices, documents, and support.</p></article>
+            <article class="module-card"><div class="module-icon">04</div><h3>Operator Portal</h3><p>Let providers control availability, requests, guide assignments, vehicles, and payouts.</p></article>
+            <article class="module-card"><div class="module-icon">05</div><h3>Payment Simulation</h3><p>Show mobile money, card, bank transfer, pay-on-arrival, deposit, and full payment flows.</p></article>
+            <article class="module-card"><div class="module-icon">06</div><h3>Revenue Analytics</h3><p>Track simulated revenue, booking conversion, destination mix, and operator performance.</p></article>
+            <article class="module-card"><div class="module-icon">07</div><h3>Admin Command Center</h3><p>Run approvals, payments, reservations, guests, operators, and system health centrally.</p></article>
+            <article class="module-card"><div class="module-icon">08</div><h3>Destination Management</h3><p>Coordinate Tanzania destinations, partners, availability, and experience performance.</p></article>
+          </div>
+        </section>
+      </main>
+      <div id="modalRoot"></div>
+    </div>
+    <script src="./js/data.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
 </html>
