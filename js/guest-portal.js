@@ -24,8 +24,14 @@
       "</div>" +
       '<div class="content-stack" style="margin-top:16px">' +
       bookings.map(bookingCard).join("") +
+      "</div>" +
+      '<div class="premium-section-grid">' +
+      supportCard() +
+      documentsCard() +
+      savedExperiencesCard() +
       "</div></section>";
     window.KemoApp.bindInvoiceActions(root);
+    bind(root);
   }
 
   function profileCard(booking) {
@@ -100,8 +106,43 @@
       window.KemoUtils.escapeHTML(booking.reference) +
       '">Print Invoice</button>' +
       (booking.paymentStatus === "Paid" ? '<span class="status-chip confirmed">Paid</span>' : '<a class="btn primary" href="payment.html?ref=' + encodeURIComponent(booking.reference) + '">Pay Now</a>') +
+      '<button class="btn ghost" type="button" data-cancel-booking="' +
+      window.KemoUtils.escapeHTML(booking.reference) +
+      '">Cancel Booking</button></div></article>'
+    );
+  }
+
+  function supportCard() {
+    return '<article class="portal-card"><p class="card-kicker">Support Messages</p><ul class="compact-list"><li><span>Concierge</span><strong>Guide assignment ready</strong></li><li><span>Payments</span><strong>Invoice synchronized</strong></li><li><span>Operator</span><strong>Travel notes received</strong></li></ul></article>';
+  }
+
+  function documentsCard() {
+    return '<article class="portal-card"><p class="card-kicker">Travel Documents</p><ul class="compact-list"><li><span>Itinerary brief</span><span class="status-chip confirmed">Ready</span></li><li><span>Invoice HTML</span><span class="status-chip confirmed">Ready</span></li><li><span>Visa checklist</span><span class="status-chip pending">Review</span></li></ul></article>';
+  }
+
+  function savedExperiencesCard() {
+    var items = (window.KemoData && window.KemoData.experiences ? window.KemoData.experiences : []).slice(0, 3);
+    return (
+      '<article class="portal-card"><p class="card-kicker">Saved Experiences</p><div class="saved-grid">' +
+      items
+        .map(function (experience) {
+          return '<a class="saved-card" href="experience-details.html?id=' + experience.id + '"><img src="' + experience.image + '" alt="' + window.KemoUtils.escapeHTML(experience.title) + '" loading="lazy" /><div><strong>' + window.KemoUtils.escapeHTML(experience.title) + '</strong><p class="muted">' + window.KemoUtils.formatMoney(experience.price) + " / guest</p></div></a>";
+        })
+        .join("") +
       "</div></article>"
     );
+  }
+
+  function bind(root) {
+    root.querySelectorAll("[data-cancel-booking]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var reference = button.getAttribute("data-cancel-booking");
+        window.KemoStorage.updateBooking(reference, { bookingStatus: "Cancelled" });
+        window.KemoStorage.updateInvoice(reference, { bookingStatus: "Cancelled" });
+        window.KemoUtils.showToast("Booking " + reference + " marked cancelled.", "warning");
+        render();
+      });
+    });
   }
 
   function detail(label, value) {

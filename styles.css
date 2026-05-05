@@ -1,22 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
+
 :root {
-  --obsidian: #05070c;
-  --obsidian-2: #090d14;
-  --navy: #07182d;
-  --navy-2: #0d2745;
-  --navy-3: #102f3a;
-  --ivory: #fbf4e7;
-  --ivory-muted: #d9cfbd;
-  --gold: #c8a35d;
-  --gold-2: #f0d89d;
-  --gold-3: #8b6c31;
-  --emerald: #21c487;
-  --ruby: #ff776d;
-  --sky: #88c7f8;
-  --glass: rgba(255, 255, 255, 0.085);
-  --glass-strong: rgba(255, 255, 255, 0.14);
-  --glass-border: rgba(255, 255, 255, 0.16);
-  --shadow-soft: 0 24px 90px rgba(0, 0, 0, 0.38);
-  --shadow-gold: 0 18px 48px rgba(200, 163, 93, 0.22);
+  --obsidian: #07111f;
+  --obsidian-2: #0b1324;
+  --navy: #07111f;
+  --navy-2: #0b1324;
+  --navy-3: #101a2d;
+  --ivory: #f8f5ed;
+  --ivory-muted: #9ca3af;
+  --gold: #d6b25e;
+  --gold-2: #d6b25e;
+  --gold-3: #b8872e;
+  --emerald: #10b981;
+  --warning: #f59e0b;
+  --ruby: #ef4444;
+  --sky: #3b82f6;
+  --purple: #8b5cf6;
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(214, 178, 94, 0.22);
+  --shadow-soft: 0 28px 90px rgba(1, 6, 17, 0.56);
+  --shadow-gold: 0 18px 52px rgba(214, 178, 94, 0.22);
   --radius-xl: 28px;
   --radius-lg: 22px;
   --radius-md: 16px;
@@ -1819,5 +1823,494 @@ tr:last-child td {
   .booking-person .status-chip {
     grid-column: 1 / -1;
     width: max-content;
+  }
+}
+
+/* Premium tourism SaaS redesign layer */
+body {
+  background:
+    radial-gradient(circle at 20% -10%, rgba(214, 178, 94, 0.16), transparent 28rem),
+    radial-gradient(circle at 86% 8%, rgba(16, 185, 129, 0.09), transparent 23rem),
+    linear-gradient(180deg, #07111f 0%, #0b1324 45%, #07111f 100%);
+  color: #f8f5ed;
+  font-family: Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.18;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(248, 245, 237, 0.5) 1px, transparent 0),
+    linear-gradient(120deg, rgba(214, 178, 94, 0.04), transparent 38%, rgba(16, 185, 129, 0.035));
+  background-size: 34px 34px, auto;
+}
+
+main {
+  animation: pageRise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+h1,
+h2,
+.hero h1,
+.section-header h2,
+.page-title h1,
+.details-title h1,
+.experience-body h3 {
+  color: #f8f5ed;
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  text-wrap: balance;
+}
+
+h3,
+.brand strong,
+.metric,
+.stat-card strong {
+  color: #f8f5ed;
+}
+
+p,
+.muted,
+.module-card p,
+.portal-card p,
+.dashboard-card p {
+  color: #9ca3af;
+  text-wrap: pretty;
+}
+
+.topbar {
+  border-bottom-color: rgba(214, 178, 94, 0.18);
+  background: rgba(7, 17, 31, 0.84);
+  box-shadow: 0 18px 54px rgba(1, 6, 17, 0.48);
+}
+
+.brand-mark,
+.module-icon,
+.day-badge {
+  border-color: rgba(214, 178, 94, 0.42);
+  background: linear-gradient(145deg, rgba(214, 178, 94, 0.22), rgba(214, 178, 94, 0.07));
+  color: #d6b25e;
+  box-shadow: inset 0 1px 0 rgba(248, 245, 237, 0.18), 0 16px 40px rgba(214, 178, 94, 0.15);
+}
+
+.brand small {
+  color: #9ca3af;
+}
+
+.nav-link {
+  color: rgba(248, 245, 237, 0.72);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-color: rgba(214, 178, 94, 0.44);
+  background: rgba(214, 178, 94, 0.11);
+  color: #d6b25e;
+  box-shadow: 0 0 28px rgba(214, 178, 94, 0.13);
+}
+
+.nav-link.active::after {
+  background: linear-gradient(90deg, transparent, #d6b25e, transparent);
+}
+
+.hero {
+  min-height: min(940px, calc(100dvh - 78px));
+  background-image:
+    linear-gradient(90deg, rgba(7, 17, 31, 0.94) 0%, rgba(7, 17, 31, 0.78) 42%, rgba(11, 19, 36, 0.46) 100%),
+    radial-gradient(circle at 68% 40%, rgba(214, 178, 94, 0.18), transparent 22rem),
+    linear-gradient(0deg, #07111f, rgba(7, 17, 31, 0.18) 54%),
+    var(--hero-image);
+}
+
+.hero::after {
+  background: linear-gradient(180deg, transparent, #07111f);
+}
+
+.hero h1 {
+  max-width: 1040px;
+  font-size: clamp(3.2rem, 6vw, 6.5rem);
+  line-height: 0.96;
+}
+
+.hero-subtitle,
+.page-title p,
+.section-header p,
+.details-title p {
+  color: #c6cbd3;
+}
+
+.eyebrow,
+.card-kicker {
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 10px;
+  border-color: rgba(214, 178, 94, 0.34);
+  background: rgba(214, 178, 94, 0.09);
+  color: #d6b25e;
+  letter-spacing: 0.1em;
+}
+
+.eyebrow::before {
+  background: #10b981;
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.85);
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid #d6b25e;
+  outline-offset: 3px;
+}
+
+.btn.primary {
+  border-color: rgba(214, 178, 94, 0.7);
+  background: linear-gradient(135deg, #efd486, #d6b25e 54%, #b8872e);
+  box-shadow: 0 18px 52px rgba(214, 178, 94, 0.28);
+  color: #07111f;
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, #d6b25e, #b8872e);
+  box-shadow: 0 22px 70px rgba(214, 178, 94, 0.38);
+}
+
+.btn.secondary,
+.btn.ghost {
+  border-color: rgba(214, 178, 94, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8f5ed;
+}
+
+.btn.secondary:hover,
+.btn.ghost:hover {
+  border-color: rgba(214, 178, 94, 0.42);
+  background: rgba(214, 178, 94, 0.1);
+}
+
+.stat-card,
+.glass-card,
+.module-card,
+.experience-card,
+.portal-card,
+.dashboard-card,
+.floating-card,
+.reservation-card {
+  position: relative;
+  border-color: rgba(214, 178, 94, 0.22);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+    rgba(11, 19, 36, 0.72);
+  box-shadow:
+    inset 0 1px 0 rgba(248, 245, 237, 0.08),
+    0 28px 90px rgba(1, 6, 17, 0.5);
+  backdrop-filter: blur(24px);
+}
+
+.stat-card::after,
+.module-card::after,
+.experience-card::after,
+.dashboard-card::after,
+.portal-card::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  border-radius: inherit;
+  background: radial-gradient(circle at 18% 0%, rgba(214, 178, 94, 0.15), transparent 38%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.stat-card:hover::after,
+.module-card:hover::after,
+.experience-card:hover::after,
+.dashboard-card:hover::after,
+.portal-card:hover::after {
+  opacity: 1;
+}
+
+.stat-card strong,
+.metric.gold,
+.reservation-price,
+.price,
+.rating {
+  color: #d6b25e;
+}
+
+.module-card:hover,
+.experience-card:hover,
+.portal-card:hover,
+.dashboard-card:hover,
+.floating-card:hover {
+  border-color: rgba(214, 178, 94, 0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(248, 245, 237, 0.09),
+    0 30px 90px rgba(1, 6, 17, 0.56),
+    0 0 44px rgba(214, 178, 94, 0.14);
+}
+
+.page-hero {
+  background:
+    radial-gradient(circle at 78% -18%, rgba(214, 178, 94, 0.18), transparent 26rem),
+    linear-gradient(180deg, #0b1324, #07111f);
+}
+
+.filter-bar,
+.table-wrap,
+.mini-panel,
+.input-shell,
+input,
+select,
+textarea,
+.compact-list li,
+.payment-card,
+.step-button,
+.date-cell {
+  border-color: rgba(214, 178, 94, 0.16);
+  background: rgba(255, 255, 255, 0.055);
+  color: #f8f5ed;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(156, 163, 175, 0.75);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(214, 178, 94, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 4px rgba(214, 178, 94, 0.14);
+}
+
+.payment-card:hover,
+.payment-card.selected,
+.step-button:hover,
+.step-button.active {
+  border-color: rgba(214, 178, 94, 0.48);
+  background: rgba(214, 178, 94, 0.12);
+  box-shadow: 0 18px 52px rgba(214, 178, 94, 0.12);
+}
+
+.status-chip {
+  border-color: rgba(214, 178, 94, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8f5ed;
+}
+
+.status-chip.confirmed,
+.status-chip.success,
+.availability.open {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.14);
+  color: #bcf7dc;
+}
+
+.status-chip.pending,
+.availability.limited {
+  border-color: rgba(245, 158, 11, 0.42);
+  background: rgba(245, 158, 11, 0.14);
+  color: #ffd995;
+}
+
+.status-chip.cancelled {
+  border-color: rgba(239, 68, 68, 0.42);
+  background: rgba(239, 68, 68, 0.14);
+  color: #fecaca;
+}
+
+.status-chip.blue {
+  border-color: rgba(59, 130, 246, 0.44);
+  background: rgba(59, 130, 246, 0.16);
+  color: #bfdbfe;
+}
+
+.status-chip.purple {
+  border-color: rgba(139, 92, 246, 0.46);
+  background: rgba(139, 92, 246, 0.16);
+  color: #ddd6fe;
+}
+
+th {
+  color: #d6b25e;
+}
+
+td {
+  color: #f8f5ed;
+}
+
+.revenue-column,
+.bar-stack span {
+  background: linear-gradient(180deg, #d6b25e, rgba(184, 135, 46, 0.44));
+}
+
+.health-item {
+  border-color: rgba(16, 185, 129, 0.28);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.modal-backdrop {
+  background: rgba(7, 17, 31, 0.72);
+}
+
+.modal {
+  max-height: min(84dvh, 780px);
+  overflow: auto;
+  border-color: rgba(214, 178, 94, 0.28);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+    #0b1324;
+  animation: modalRise 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes modalRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.toast {
+  border-color: rgba(214, 178, 94, 0.24);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045)),
+    rgba(11, 19, 36, 0.94);
+}
+
+.hero-panel .payment-status-card {
+  left: 44px;
+  bottom: 178px;
+  padding: 18px;
+}
+
+.flow-stepper {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.flow-stepper .step-button {
+  min-height: 74px;
+}
+
+.premium-section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.admin-stat-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.premium-section-grid .health-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dashboard-split {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.action-link {
+  color: #d6b25e;
+  font-weight: 800;
+}
+
+.empty-state {
+  border-color: rgba(214, 178, 94, 0.18);
+  background:
+    radial-gradient(circle at 16% 0%, rgba(214, 178, 94, 0.13), transparent 18rem),
+    rgba(255, 255, 255, 0.055);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .module-card,
+  .experience-card,
+  .portal-card,
+  .dashboard-card,
+  .stat-card {
+    animation: revealUp 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .module-card:nth-child(2n),
+  .experience-card:nth-child(2n),
+  .dashboard-card:nth-child(2n) {
+    animation-delay: 70ms;
+  }
+
+  .module-card:nth-child(3n),
+  .experience-card:nth-child(3n),
+  .dashboard-card:nth-child(3n) {
+    animation-delay: 130ms;
+  }
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1180px) {
+  .premium-section-grid,
+  .dashboard-split,
+  .flow-stepper {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    border-color: rgba(214, 178, 94, 0.22);
+    background: rgba(7, 17, 31, 0.96);
+  }
+
+  .hero-panel .payment-status-card {
+    left: auto;
+    bottom: auto;
   }
 }

@@ -24,14 +24,14 @@
         </section>
         <section class="section compact">
           <div class="filter-bar">
-            <label class="filter-field"><span>Search</span><input placeholder="Safari, beach, honeymoon..." /></label>
-            <label class="filter-field"><span>Destination</span><select><option>All</option><option>Serengeti</option><option>Zanzibar</option></select></label>
-            <label class="filter-field"><span>Category</span><select><option>All</option><option>Safari</option><option>Beach</option></select></label>
-            <label class="filter-field"><span>Luxury Level</span><select><option>All</option><option>Ultra Luxury</option><option>Presidential</option></select></label>
-            <label class="filter-field"><span>Price Range</span><select><option>All</option><option>$2,500+</option></select></label>
-            <label class="filter-field"><span>Duration</span><select><option>All</option><option>4-6 Days</option></select></label>
-            <label class="filter-field"><span>Availability</span><select><option>All</option><option>Open</option><option>Limited Availability</option></select></label>
-            <label class="filter-field"><span>Sort</span><select><option>Featured</option><option>Highest Rated</option></select></label>
+            <label class="filter-field"><span>Search</span><input data-filter="search" placeholder="Safari, beach, honeymoon..." /></label>
+            <label class="filter-field"><span>Destination</span><select data-filter="destination"><option>All</option><option>Serengeti</option><option>Zanzibar</option><option>Kilimanjaro</option><option>Ngorongoro</option><option>Mafia Island</option></select></label>
+            <label class="filter-field"><span>Category</span><select data-filter="category"><option>All</option><option>Safari</option><option>Beach</option><option>Trekking</option><option>Marine</option><option>Culture</option><option>Honeymoon</option></select></label>
+            <label class="filter-field"><span>Luxury Level</span><select data-filter="level"><option>All</option><option>Ultra Luxury</option><option>Presidential</option><option>Elite</option><option>Signature</option><option>Premium</option></select></label>
+            <label class="filter-field"><span>Price Range</span><select data-filter="price"><option>All</option><option>Under $1,500</option><option>$1,500 - $2,500</option><option>$2,500+</option></select></label>
+            <label class="filter-field"><span>Duration</span><select data-filter="duration"><option>All</option><option>1-3 Days</option><option>4-6 Days</option><option>7+ Days</option></select></label>
+            <label class="filter-field"><span>Availability</span><select data-filter="availability"><option>All</option><option>Open</option><option>Limited Availability</option></select></label>
+            <label class="filter-field"><span>Sort</span><select data-filter="sort"><option>Featured</option><option>Highest Rated</option><option>Price Low</option><option>Price High</option></select></label>
           </div>
           <div class="experience-grid" id="experienceGrid"></div>
         </section>

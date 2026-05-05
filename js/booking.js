@@ -32,6 +32,12 @@
     return (
       '<section class="booking-layout">' +
       '<div><article class="glass-card"><p class="card-kicker">Luxury Reservation Flow</p><h3>Configure your premium Tanzania journey</h3>' +
+      '<div class="flow-stepper" aria-label="Booking progress">' +
+      '<div class="step-button active"><small>01</small><strong>Experience</strong><span>Select journey</span></div>' +
+      '<div class="step-button active"><small>02</small><strong>Journey Setup</strong><span>Dates and guests</span></div>' +
+      '<div class="step-button active"><small>03</small><strong>Guest Profile</strong><span>Traveler details</span></div>' +
+      '<div class="step-button active"><small>04</small><strong>Confirmation</strong><span>Continue to payment</span></div>' +
+      "</div>" +
       '<form id="bookingForm" class="booking-form" autocomplete="on">' +
       '<div class="form-grid">' +
       selectField("experienceId", "Experience", window.KemoData.experiences, state.experience.id) +
@@ -42,11 +48,12 @@
       selectOptions("transportClass", "Transport Class", Object.keys(transportFees), "Private 4x4") +
       selectOptions("privateGuide", "Private Guide", ["Yes", "No"], "Yes") +
       selectOptions("airportPickup", "Airport Pickup", ["Yes", "No"], "Yes") +
-      field("guestName", "Full Name", "text", "Amina Hassan") +
-      field("email", "Email", "email", "amina.hassan@example.com") +
+      field("guestName", "Full Name", "text", "Amina Hassan", "required") +
+      field("email", "Email", "email", "amina.hassan@example.com", "required") +
       field("phone", "Phone", "tel", "+255 742 800 119") +
       field("nationality", "Nationality", "text", "Tanzanian") +
       '<label class="form-field full"><span>Special Request</span><textarea name="specialRequest">Prefer a quiet lodge suite, vegetarian dining, and a photography-focused guide.</textarea></label>' +
+      '<label class="form-field full"><span>Travel Notes</span><textarea name="travelNotes">Arrival support, dietary preferences, and operator notes are captured here for the guest portal and admin command center.</textarea></label>' +
       "</div>" +
       '<div id="referenceAnimation" class="reference-generator" hidden><span class="pulse-dot"></span><strong>Generating secure booking reference...</strong><em>KEMO-OS-XXXXX</em></div>' +
       '<div class="button-row" style="margin-top:22px"><button class="btn primary" type="submit">Create Booking & Continue to Payment</button><a class="btn secondary" href="experiences.html">Browse Experiences</a></div>' +
@@ -233,6 +240,7 @@
         privateGuide: window.KemoUtils.safeText(form.elements.privateGuide.value, "Yes"),
         airportPickup: window.KemoUtils.safeText(form.elements.airportPickup.value, "Yes"),
         specialRequest: window.KemoUtils.safeText(form.elements.specialRequest.value, ""),
+        travelNotes: window.KemoUtils.safeText(form.elements.travelNotes.value, ""),
         basePrice: Math.round(quote.basePrice),
         accommodationFee: Math.round(quote.accommodationFee),
         transportFee: Math.round(quote.transportFee),
